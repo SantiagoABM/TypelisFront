@@ -1,0 +1,33 @@
+.paragraph {
+    font-size: 1.5rem;
+}
+
+.categorias {
+    width: 100%;
+    font-family: var(--text-chicle);
+    display: flex;
+    justify-content: center;
+}
+.caracteristicas h3{
+    font-size: 1.5rem;
+}
+.categorias h2  {
+    text-decoration: none;
+    color: var(--color-subtitulos);
+    padding: 8px;
+}
+
+.relacionados{
+    display: flex;
+    width: 100%;
+    overflow: auto;
+}
+
+.imagen{
+    width: 90%;
+    
+}
+
+.actor-contenedor{
+    align-items: center;
+}

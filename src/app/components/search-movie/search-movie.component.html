@@ -1,0 +1,24 @@
+<div class="mt-4 container">
+    <input class="form-control mb-3" type="text" placeholder="Buscar película" #txtSearch (keyup)="onSearchPelicula(txtSearch.value)">
+    <div class="btn-filtros">
+        <button *ngFor="let genero of generos" class="btn btn-danger mx-2"
+            (click)="filtrarPeliculas(genero.id)">{{genero.name}}</button>
+    </div>
+    <ng-container *ngIf="filtroActivo; else allPeliculas">
+        <div class="container peliculas-grid">
+            <ng-container *ngFor="let pelicula of peliculas  | pelisclient:search">
+                <ng-container *ngIf="pelicula.genero.includes(generoSeleccionado) || generoSeleccionado === ''">
+                    <app-card-pelicula [pelicula]="pelicula"></app-card-pelicula>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <ng-template #allPeliculas>
+        <div class="peliculas-grid container">
+            <ng-container *ngFor="let pelicula of peliculas  | pelisclient:search">
+                <app-card-pelicula [pelicula]="pelicula"></app-card-pelicula>
+            </ng-container>
+        </div>
+    </ng-template>
+</div>

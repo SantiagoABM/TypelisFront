@@ -1,0 +1,38 @@
+<div class="position-absolute" style="z-index: 2; width: 50%; margin-top: 1rem; left: 25%">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert"
+        *ngIf="!authService.loggedIn(); else Logeado">
+        <a style="text-decoration: none; color: black;" routerLink="/signin"><strong> Necesitas Iniciar Sesión
+            </strong></a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <ng-template #Logeado>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>LogIn Success</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </ng-template>
+</div>
+<app-slider></app-slider>
+
+
+<div class="esqueleto">
+    
+    <div *ngFor="let genero of generos">
+        <div class="titulop">
+            <h1>{{genero.name}}</h1>
+        </div>
+        <div class="moviecss">
+            <ng-container *ngFor="let pelicula of peliculas">
+                <ng-container *ngIf="pelicula.genero.includes(genero.id) || genero.id === ''">
+                    <app-card-pelicula [pelicula]="pelicula"></app-card-pelicula>
+                </ng-container>
+            </ng-container>
+        </div>
+
+
+    </div>
+</div>

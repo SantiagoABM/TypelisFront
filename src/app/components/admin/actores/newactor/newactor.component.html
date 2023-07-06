@@ -1,0 +1,53 @@
+<div class="d-flex">
+    <app-navbarlat></app-navbarlat>
+    <div class="container mt-5 mb-5 formulario">
+        <form (submit)="submitForm()" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="actor.name" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa el nombre de la película.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="actor.descripcion"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    Por favor ingresa la descripción de la película.
+                </div>
+            </div><div class="mb-3">
+                <label for="ciudad" class="form-label">Ciudad</label>
+                <input type="text" class="form-control" id="ciudad" name="ciudad" [(ngModel)]="actor.ciudad"
+                    required>
+                <div class="invalid-feedback">
+                    Por favor ingresa el nombre del ciudad.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="lenguaje" class="form-label">Lenguaje Maternal</label>
+                <input type="text" class="form-control" id="lenguaje" name="lenguaje" [(ngModel)]="actor.lenguaje"
+                    required>
+                <div class="invalid-feedback">
+                    Por favor ingresa el nombre del lenguaje.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="age" name="age" [(ngModel)]="actor.age" required>
+                <div class="invalid-feedback">
+                    Por favor ingresa el año de la película.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="imgURL" class="form-label">URL de la imagen</label>
+                <input type="text" class="form-control" id="imgURL" name="imgURL" [(ngModel)]="actor.imgURL"
+                    required>
+                <div class="invalid-feedback">
+                    Por favor ingresa la URL de la imagen.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+.peliculas-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    overflow: hidden;
+}
+.titulo{
+    margin-left: 3rem;
+    font-family: var(--text-chicle);
+    color: var(--color-text-autor);
+    font-weight: bold;
+}
+.contenedor{
+    margin-top: 2rem;
+    width: 100%;
+}

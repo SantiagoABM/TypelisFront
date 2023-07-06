@@ -1,0 +1,3 @@
+<div class="playmovie" id="pmovie" *ngIf="pelicula">
+    <iframe [src]="pelicula.videoURL | safe" width="640" height="480" allow="autoplay"></iframe>
+</div>

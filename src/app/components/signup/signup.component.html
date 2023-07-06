@@ -1,0 +1,50 @@
+<div class="container p-5">
+    <div class="row">
+      <div class="col-12 text-center mb-3">
+        <app-logo></app-logo>
+      </div>
+      <div class="col-lg-6 mx-auto">
+        <div class="card">
+          <div class="card-header text-center h2" style="background: var(--color-fondo-formulario); color: var(--color-text-form);">
+            <strong>Register</strong>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <form (submit)="signUp()" class="text-center p-3">
+                    <div class="form-group text-left">
+                        <label for="Username" style="color: var(--color-text-form)">Username:</label>
+                        <input type="text" [(ngModel)]="user.username" id="Username" name="username" class="form-control is-invalid"
+                          placeholder="example" required minlength="8" #username="ngModel">
+                      </div>
+                  <div class="form-group text-left">
+                    <label for="Email" style="color: var(--color-text-form)">Email:</label>
+                    <input type="text" [(ngModel)]="user.email" id="Email" name="email" class="form-control is-invalid"
+                      placeholder="example@gmail.com" required minlength="8" #email="ngModel">
+                  </div>
+                  <div class="form-group text-left">
+                    <label for="Password" style="color: var(--color-text-form)">Password:</label>
+                    <input type="password" [(ngModel)]="user.password" id="Password" name="password" class="form-control is-invalid"
+                      placeholder="******" required minlength="6" #password="ngModel">
+                  </div>
+                  <button type="submit" class="btn btn-block mt-2" style="background: var(--color-btn-form);">
+                    Register
+                  </button>
+                  <div class="form-group mt-4" style="color: var(--color-text-form);">
+                    <p>Ya tienes una cuenta?<br> Ingresa
+                      <a routerLink="/signin" style="color: var(--color-text-form); font-weight: bold;">aquí</a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-6 d-flex align-items-center">
+                <img src="https://d500.epimg.net/cincodias/imagenes/2020/12/31/lifestyle/1609408585_467254_1609408795_noticia_normal.jpg"
+                  class="rounded w-100" alt="...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,70 @@
+<div class="d-flex">
+    <app-navbarlat></app-navbarlat>
+<div class="container mt-5 mb-5 formulario">
+
+    <form (submit)="updateForm()" class="needs-validation " novalidate>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="pelicula.name" required>
+        <div class="invalid-feedback">
+          Por favor ingresa el nombre de la película.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="pelicula.descripcion" required></textarea>
+        <div class="invalid-feedback">
+          Por favor ingresa la descripción de la película.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="director" class="form-label">Director</label>
+        <input type="text" class="form-control" id="director" name="director" [(ngModel)]="pelicula.director" required>
+        <div class="invalid-feedback">
+          Por favor ingresa el nombre del director.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="year" class="form-label">Año</label>
+        <input type="number" class="form-control" id="year" name="year" [(ngModel)]="pelicula.year" required>
+        <div class="invalid-feedback">
+          Por favor ingresa el año de la película.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="imgURL" class="form-label">URL de la imagen</label>
+        <input type="text" class="form-control" id="imgURL" name="imgURL" [(ngModel)]="pelicula.imgURL" required>
+        <div class="invalid-feedback">
+          Por favor ingresa la URL de la imagen.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="videoURL" class="form-label">URL del video</label>
+        <input type="text" class="form-control" id="videoURL" name="videoURL" [(ngModel)]="pelicula.videoURL" required>
+        <div class="invalid-feedback">
+          Por favor ingresa la URL del video.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="generos" class="form-label">Géneros</label>
+        <select class="form-select" id="generos" name="generos" [(ngModel)]="pelicula.genero" multiple required>
+          <option *ngFor="let genero of generos" [value]="genero._id">{{ genero.name }}</option>
+        </select>
+        <div class="invalid-feedback">
+          Por favor selecciona al menos un género.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="actores" class="form-label">Géneros</label>
+        <select class="form-select" id="actores" name="actores" [(ngModel)]="pelicula.actores" multiple required>
+          <option *ngFor="let actor of actores" [value]="actor.id">{{ actor.name }}</option>
+        </select>
+        <div class="invalid-feedback">
+          Por favor selecciona al menos un género.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+    
+  </div>
+</div>

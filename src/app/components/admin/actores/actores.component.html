@@ -1,0 +1,45 @@
+<div class="d-flex">
+    <app-navbarlat></app-navbarlat>
+    <div class="container mt-5 mb-5" style="background: var(--color-fondo-formulario);">
+        <div class="cabecera d-flex justify-content-between mt-2">
+            <h1>Actores</h1>
+            <a routerLink="/admin/actores/new"><i class="fa-solid fa-square-plus"
+                    style="color: #fff12b; font-size: 3rem;"></i></a>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control mb-2" placeholder="Buscar actor" #txtSearch (keyup)="onSearchActores(txtSearch.value)"/>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let actor of actores | filtroActores:page:search">
+                    <th scope="row">{{ actor.id}}</th>
+                    <td>{{ actor.name }}</td>
+                    <td style="width: 300px;">{{ actor.descripcion }}</td>
+                    <td>{{ actor.age }}</td>
+                    <td>{{ actor.ciudad }}</td>
+                    <td>
+                        <a routerLink="/admin/actores/update/{{actor.id}}"><i
+                                class="fa-solid fa-pen-to-square mr-4" style="color: #376cc8;"></i></a>
+                        <a routerLink="/admin/actores/delete/{{actor.id}}"><i
+                                class="fa-sharp fa-solid fa-trash ml-4" style="color: #cc2424;"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="botones w-100 d-flex justify-content-around">
+            <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+            <button class="btn btn-primary" (click)="nextPage()" [disabled]="(actores | filtroActores:page:search).length === 0">Siguientes</button>
+        </div>
+    </div>
+</div>

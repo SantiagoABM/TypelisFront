@@ -1,0 +1,18 @@
+
+    <div class="p-5 d-flex w-100 h-auto cuerpo">
+        <div class="scrolling-wrapper w-100" >
+            <a class="tp-transform" routerLink="/detailmovie/{{ pelicula.id }}">
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="image-container card-img-top"
+                        style="background-image: url( '{{ pelicula.imagen }}');">
+                    </div>
+                    <div class="tarjeta text-center">
+                        <p class="titulo w-100">{{ pelicula.nombre }}</p>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+        <i class="fas fa-chevron-left btncontrol prev"></i>
+        <i class="fas fa-chevron-right btncontrol next"></i>
+    </div>

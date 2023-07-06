@@ -1,0 +1,29 @@
+.titulop{
+    margin-left: 3rem;
+    font-family: var(--text-chicle);
+    color: var(--color-text-autor);
+    font-weight: bold;
+    
+}
+.btn-filtros{
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+.moviecss{  
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    overflow: auto;
+}
+
+.moviecss::-webkit-scrollbar{
+    color: var(--color-fondo);
+}
+
+.esqueleto{
+    margin-top: 1rem;
+    width: 100%;
+    
+}

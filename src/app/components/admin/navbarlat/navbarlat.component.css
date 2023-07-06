@@ -1,0 +1,33 @@
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: #f2f2f2;
+    padding: 20px;
+    color: black;
+  }
+  
+  .nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    margin-bottom: 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .nav-link:hover {
+    color: #007bff;
+  }
+  
+  .active {
+    color: #007bff;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,32 @@
+<div class="container mt-5 bg-black d-flex actor-contenedor" *ngIf="actor">
+    <div class="imagen">
+        <img width="80%" height="80%" [src]='actor.imgURL | safe' frameborder="0">
+    </div>
+    <div class="w-100 h-100">
+        <div class="detailactor" style="color: white; width: 55%;">
+            <div class="texto ">
+                <h1 style="font-family: var(--text-anton); font-size: 4rem;">{{actor.name}}</h1>
+            </div>
+            <br>
+            <div class="paragraph-container">
+                <p>{{actor.descripcion}}</p>
+            </div>
+            <br><br>
+            <div class="caracteristicas">
+                <h3>Ciudad de Nacimiento: {{actor.ciudad}}</h3>
+                <h3>Edad: {{actor.age}}</h3>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="categorias">
+    <h2>Películas en las cuales ha participado:</h2>
+</div>
+<div class="relacionados">
+    <div *ngFor="let peli of peliculas">
+        <app-card-pelicula *ngIf="peli.actores.includes(actor._id) || false" [pelicula]="peli"></app-card-pelicula>
+    </div>
+</div>

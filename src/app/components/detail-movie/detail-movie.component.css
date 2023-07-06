@@ -1,0 +1,96 @@
+.paragraph {
+    max-height: 3em;
+    /* Altura máxima de 3 líneas (ajusta según tus necesidades) */
+    overflow: hidden;
+    font-size: 1.5rem;
+}
+
+.paragraph.expanded {
+    max-height: none;
+    /* Establece la altura máxima como "none" cuando se expande */
+}
+
+.read-more-btn {
+    background: none;
+    color: white;
+    border: none;
+}
+
+.read-more-btn:hover {
+    color: yellow;
+}
+
+.ver-ahora a {
+    text-decoration: none;
+    color: var(--color-subtitulos);
+}
+
+.playbtn {
+    background-color: var(--color-fondo-formulario);
+    padding: 20px;
+    font-size: 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+
+}
+
+.like a {
+    text-decoration: none;
+    color: var(--color-btn-form);
+}
+
+.likebtn {
+    background-color: white;
+    font-size: 2rem;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.categorias {
+    width: 100%;
+    font-family: var(--text-chicle);
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.categorias a {
+    text-decoration: none;
+    color: var(--color-subtitulos);
+    padding: 8px;
+}
+
+.shadow__btn {
+    padding: 10px 20px;
+    border: none;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 7px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.5s;
+    transition-property: box-shadow;
+}
+
+.shadow__btn {
+    background: rgb(0, 140, 255);
+    box-shadow: 0 0 25px rgb(0, 140, 255);
+}
+
+.shadow__btn:hover {
+    box-shadow: 0 0 5px rgb(0, 140, 255),
+        0 0 25px rgb(0, 140, 255),
+        0 0 50px rgb(0, 140, 255),
+        0 0 100px rgb(0, 140, 255);
+}
+
+.relacionados{
+    display: flex;
+    width: 100%;
+    overflow: auto;
+}
+
+.relacionados::-webkit-scrollbar{
+    color: var(--color-fondo);
+}

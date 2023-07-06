@@ -1,0 +1,39 @@
+<div class="d-flex">
+    <app-navbarlat></app-navbarlat>
+    <div class="container mt-5 mb-5" style="background: var(--color-fondo-formulario);">
+        <div class="cabecera d-flex justify-content-between mt-2">
+            <h1>Géneros</h1>
+            <a routerLink="/admin/generos/new"><i class="fa-solid fa-square-plus"
+                    style="color: #fff12b; font-size: 3rem;"></i></a>
+        </div>
+        <div class="search">
+            <input type="text" class="form-control mb-2" placeholder="Buscar género" #txtSearch (keyup)="onSearchGenero(txtSearch.value)"/>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let genero of generos | filtroGeneros:page:search">
+                    <th scope="row">{{ genero.id}}</th>
+                    <td>{{ genero.name }}</td>
+                    <td>
+                        <a routerLink="/admin/generos/update/{{genero.id}}"><i
+                                class="fa-solid fa-pen-to-square mr-4" style="color: #376cc8;"></i></a>
+                        <a routerLink="/admin/generos/delete/{{genero.id}}"><i
+                                class="fa-sharp fa-solid fa-trash ml-4" style="color: #cc2424;"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="botones w-100 d-flex justify-content-around">
+            <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+            <button class="btn btn-primary" (click)="nextPage()" [disabled]="(generos | filtroGeneros:page:search).length === 0">Siguientes</button>
+        </div>
+    </div>
+</div>

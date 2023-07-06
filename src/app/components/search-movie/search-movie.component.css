@@ -1,0 +1,31 @@
+.titulop{
+    width: 100%;
+    text-align: center;
+}
+.btn-filtros{
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    
+}
+
+.btn-filtros::-webkit-scrollbar{
+    color: var(--color-fondo);
+}
+
+.moviecss{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    overflow: auto;
+}
+.esqueleto{
+    width: 100%;
+}
+
+.peliculas-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 5px;
+}
