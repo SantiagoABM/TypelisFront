@@ -2,6 +2,10 @@
   <div class="carousel-inner">
     <div class="carousel-item" *ngFor="let image of imageSlider" [ngClass]="{'active': image === imageSlider[0]}">
       <img class="d-block imgSlider" [src]="image.imgURL" [alt]="image.name">
+      <div class="container-details d-flex ">
+        <h3 class="tituloSlider">{{image.name}}</h3>
+        <button class="my-button" (click)="redirectTo(image.id)">Haz clic</button>
+      </div>
     </div>
   </div>
 </div>

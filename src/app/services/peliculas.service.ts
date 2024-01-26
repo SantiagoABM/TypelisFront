@@ -18,7 +18,7 @@ export class PeliculasService {
     { name: 'Ya me hiciste mal Rayos Laser', imgURL: 'https://matisinay.com/wp-content/uploads/2020/01/1920x1080-vtime-2_54-take-2021-01-07-16.44.12-.png', id: '8', descripcion: 'asdjsak ds ddsadjakjdkkjdaksj samdsak dsakdjaskdjakdks dasn dkadsakd mamsd kma dkmamkd skmd', rating: 4.3, genero: ['3', '7'], year: 2023, videoURL: 'https://www.youtube.com/embed/F4i3O7T488I?autoplay=1', director: 'dreamworks', likes: 0, vistas: 0, actores: ['15'] }
   ]
 
-  private URL = "http://localhost:3400/api/peliculas/"
+  private URL = "https://typelis-deploy-render.onrender.com/api/peliculas"
 
   constructor(private http: HttpClient) { }
   //:userId/:peliculaId/like
@@ -36,6 +36,10 @@ export class PeliculasService {
     return this.http.get<any>(this.URL + id);
   }
 
+  getPeliculasFavoritas(userId: string){
+      return this.http.get<any>(this.URL + userId + "/misfavoritos"); 
+  }
+
   createPelicula(pelicula) {
     return this.http.post(this.URL , pelicula);
   }
@@ -49,6 +53,10 @@ export class PeliculasService {
     // return this.peliculas.find(p => p.id === id)
     return this.http.get<any>(this.URL + peliculaId);
 
+  }
+
+  getMoviesMostLike(){
+    return this.http.get<any>(this.URL + 'peliculalikes')
   }
 
   deleteMovieId(peliculaId: string) {

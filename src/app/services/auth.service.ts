@@ -10,7 +10,7 @@ export class AuthService {
 
 
 
-  private URL = 'http://localhost:3400/api/auth'
+  private URL = 'https://typelis-deploy-render.onrender.com/api/auth'
 
   constructor(private http: HttpClient, private router: Router) { }
 

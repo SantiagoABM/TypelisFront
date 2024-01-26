@@ -24,7 +24,7 @@ export class ActoresService {
     { id: '15', name: 'Rayos Laser', descripcion: 'ssda ndos dsad jasdo iasjdkas djalkdsal daslkd asdksa dasjd', age: 28, ciudad: 'España', lenguaje: 'Español', imgURL: 'https://polifoniaok.files.wordpress.com/2020/09/rayos1.jpg?w=1568', peliculas: ['8'] },
   ]
 
-  private URL = "http://localhost:3400/api/actores/"
+  private URL = "https://typelis-deploy-render.onrender.com/api/actores/"
 
   constructor(private http: HttpClient) { }
 

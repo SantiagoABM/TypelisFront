@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  private URL = "http://localhost:3400/api/users/"
+  private URL = "https://typelis-deploy-render.onrender.com/api/users/"
 
   constructor(private http: HttpClient) { }
 

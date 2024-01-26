@@ -20,7 +20,28 @@
 
 
 <div class="esqueleto">
-    
+    <div *ngIf="userId && favoritos.length!=0">
+        <div class="titulop">
+            <h1>Tus favoritos</h1>
+        </div>
+        <div class="moviecss">
+            <ng-container *ngFor="let pelicula of favoritos">
+                    <app-card-pelicula [pelicula]="pelicula"></app-card-pelicula>
+            </ng-container>
+        </div>
+    </div>
+    <!-- peliculas top 10 -->
+    <div>
+        <div class="titulop">
+            <h1>Top 10</h1>
+        </div>
+        <div class="moviecss">
+            <ng-container *ngFor="let pelicula of peliculasxlikes">
+                    <app-card-pelicula [pelicula]="pelicula"></app-card-pelicula>
+            </ng-container>
+        </div>
+    </div>
+    <!-- peliculas filtradas por generos -->
     <div *ngFor="let genero of generos">
         <div class="titulop">
             <h1>{{genero.name}}</h1>

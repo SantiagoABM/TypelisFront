@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { PeliculasService } from 'src/app/services/peliculas.service';
 
@@ -15,7 +16,8 @@ export class SliderComponent implements OnInit {
     'https://images.paramount.tech/uri/mgid:arc:imageassetref:shared.southpark.latam:9ba7cc0a-77f4-11ea-a59c-0a7527021758?quality=0.7&gen=ntrn&legacyStatusCode=true'
   ];
   currentIndex = 0;
-  constructor(private peliculaService: PeliculasService){}
+  constructor(private peliculaService: PeliculasService,
+    private router: Router){}
   ngOnInit() {
     // Configuración del slider
     this.peliculaService.getMovies()
@@ -29,7 +31,7 @@ export class SliderComponent implements OnInit {
           })))
     ).subscribe(
       res => {
-        this.imageSlider = res.slice(-3);
+        this.imageSlider = res.slice(-5).reverse();
         console.log(this.imageSlider);
       },
       err => console.log(err)
@@ -41,5 +43,10 @@ export class SliderComponent implements OnInit {
 
   nextSlide() {
     this.currentIndex = (this.currentIndex === this.images.length - 1) ? 0 : this.currentIndex + 1;
+  }
+
+  redirectTo(id: string){
+    console.log(id)
+    this.router.navigate(['/detailmovie/'+ id]);
   }
 }

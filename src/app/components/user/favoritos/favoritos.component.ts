@@ -24,32 +24,29 @@ export class FavoritosComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.authService.getUserId();
 
-    this.obtenerUsuario(this.userId).pipe(
-      switchMap((favoritos) => {
-        this.favoritos = favoritos;
-        return this.peliculasService.getMovies();
-      }),
-      map((peliculas) =>
-        peliculas
-          .map((pelicula) => ({
-            id: pelicula._id,
-            name: pelicula.name,
-            imgURL: pelicula.imgURL,
-          }))
-          .filter((pelicula) => this.favoritos.includes(pelicula.id))
+    this.peliculasService.getPeliculasFavoritas(this.userId)
+      .pipe(
+        map(peliculas => peliculas
+          .map(pelicula => (
+            { 
+              id: pelicula._id,
+              name: pelicula.name,
+              descripcion: pelicula.descripcion,
+              year: pelicula.year,
+              genero: pelicula.genero,
+              actores: pelicula.actores,
+              director: pelicula.director,
+              imgURL: pelicula.imgURL,
+              videoURL: pelicula.videoURL,
+              likes: pelicula.likes
+            })))
+      ).subscribe(
+        res => {
+          this.favoritos = res;
+          console.log(this.favoritos);
+        },
+        err => console.log(err)
       )
-    ).subscribe(
-      (res) => {
-        this.peliculas = res;
-        console.log(this.peliculas);
-      },
-      (err) => console.log(err)
-    );
   }
 
-  obtenerUsuario(userId: string) {
-    return this.usersService.getUserById(userId).pipe(
-      map((res) => res.favoritos)
-    );
-  }
 }

@@ -1,10 +1,10 @@
-<div class="contenedor">
+<div class="container mt-2">
     <div class="titulo">
         <h1>Mis Favoritos</h1>
     </div>
     <div class="peliculas-grid">
         <div class="row">
-            <div class="col-md-3" *ngFor="let peli of peliculas">
+            <div class="col-md-3" *ngFor="let peli of favoritos">
                 <app-card-pelicula [pelicula]="peli"></app-card-pelicula>
             </div>
         </div>

@@ -20,7 +20,7 @@ export class GeneroService {
 
   ]
 
-  private URL = "http://localhost:3400/api/generos"
+  private URL = "https://typelis-deploy-render.onrender.com/api/generos"
 
   constructor( private http: HttpClient) { }
 

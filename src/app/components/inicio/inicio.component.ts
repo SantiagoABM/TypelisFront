@@ -11,9 +11,12 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+  favoritos: Pelicula[]
+  userId: string
   generos: Genero[]
   peliculas: Pelicula []
   pelicula: Pelicula
+  peliculasxlikes: Pelicula[]
   logeoExistoso: boolean = false;
   imageSlider: string[]
 
@@ -44,6 +47,59 @@ export class InicioComponent implements OnInit {
       },
       err => console.log(err)
     )
+
+    this.userId = this.authService.getUserId()
+    if(this.userId){
+      this.peliculaService.getPeliculasFavoritas(this.userId)
+      .pipe(
+        map(peliculas => peliculas
+          .map(pelicula => (
+            { 
+              id: pelicula._id,
+              name: pelicula.name,
+              descripcion: pelicula.descripcion,
+              year: pelicula.year,
+              genero: pelicula.genero,
+              actores: pelicula.actores,
+              director: pelicula.director,
+              imgURL: pelicula.imgURL,
+              videoURL: pelicula.videoURL,
+              likes: pelicula.likes
+            })))
+      ).subscribe(
+        res => {
+          this.favoritos = res;
+          console.log(this.favoritos);
+        },
+        err => console.log(err)
+      )
+    }
+    
+
+    this.peliculaService.getMoviesMostLike()
+    .pipe(
+      map(peliculas => peliculas
+        .map(pelicula => (
+          { 
+            id: pelicula._id,
+            name: pelicula.name,
+            descripcion: pelicula.descripcion,
+            year: pelicula.year,
+            genero: pelicula.genero,
+            actores: pelicula.actores,
+            director: pelicula.director,
+            imgURL: pelicula.imgURL,
+            videoURL: pelicula.videoURL,
+            likes: pelicula.likes
+          })))
+    ).subscribe(
+      res => {
+        this.peliculasxlikes = res;
+        console.log(this.peliculasxlikes);
+      },
+      err => console.log(err)
+    )
+
     this.peliculaService.getMovies()
     .pipe(
       map(peliculas => peliculas

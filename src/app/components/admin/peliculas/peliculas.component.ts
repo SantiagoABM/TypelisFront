@@ -39,7 +39,7 @@ export class PeliculasComponent implements OnInit {
           })))
     ).subscribe(
       res => {
-        this.peliculas = res;
+        this.peliculas = res.reverse();
         res.forEach(pelicula => {
           console.log(pelicula.genero);
         });
