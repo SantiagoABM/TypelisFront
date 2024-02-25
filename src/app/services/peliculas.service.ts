@@ -18,6 +18,7 @@ export class PeliculasService {
     { name: 'Ya me hiciste mal Rayos Laser', imgURL: 'https://matisinay.com/wp-content/uploads/2020/01/1920x1080-vtime-2_54-take-2021-01-07-16.44.12-.png', id: '8', descripcion: 'asdjsak ds ddsadjakjdkkjdaksj samdsak dsakdjaskdjakdks dasn dkadsakd mamsd kma dkmamkd skmd', rating: 4.3, genero: ['3', '7'], year: 2023, videoURL: 'https://www.youtube.com/embed/F4i3O7T488I?autoplay=1', director: 'dreamworks', likes: 0, vistas: 0, actores: ['15'] }
   ]
 
+  //private URL = "https://localhost:3400/api/peliculas"
   private URL = "https://typelis-deploy-render.onrender.com/api/peliculas"
 
   constructor(private http: HttpClient) { }

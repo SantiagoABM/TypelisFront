@@ -19,7 +19,7 @@ export class GeneroService {
     // { id: '8', name: 'Histórico' },
 
   ]
-
+  //private URL = "https://localhost:3400/api/generos"
   private URL = "https://typelis-deploy-render.onrender.com/api/generos"
 
   constructor( private http: HttpClient) { }

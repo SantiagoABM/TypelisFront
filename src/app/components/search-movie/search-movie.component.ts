@@ -15,6 +15,7 @@ export class SearchMovieComponent implements OnInit {
   generoSeleccionado: string
   search: string
   filtroActivo: boolean = false
+  
   constructor(private peliculasService: PeliculasService, 
     private generoService: GeneroService) {
 
